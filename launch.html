@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="bower_components/fhir-js/fhir-client.js"></script>
+    <script>
+      FHIR.oauth2.authorize({
+        "client_id": "my_web_app",
+        "scope":  "patient/*.read"
+      });
+    </script>
+  </head>
+  Loading...
+</html>
