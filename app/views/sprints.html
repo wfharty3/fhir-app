@@ -1,0 +1,16 @@
+<div ng-scope>
+
+<h3 ng-bind-html="patient.narrative"></h3>
+
+<hr>
+
+<div>
+Sprint:
+<select ng-model="selectedSprint">
+<option ng-repeat="sprint in sprintList" value="{{sprint.num}}">{{sprint.name}}</option>
+</select>
+</div>
+
+{{selectedSprint}}
+
+</div>
