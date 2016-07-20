@@ -4,13 +4,45 @@
 
 <hr>
 
-<div>
-Sprint:
-<select ng-model="selectedSprint">
+<table width="90%" cellpadding="10" cellspacing="5">
+<tr>
+<td valign="top">Sprint:<br><br></td>
+<td valign="top">
+<select ng-model="selectedSprint" ng-change="SprintChanged()">
 <option ng-repeat="sprint in sprintList" value="{{sprint.num}}">{{sprint.name}}</option>
 </select>
-</div>
+</td>
+</tr>
 
-{{selectedSprint}}
+
+<tr>
+<td valign="top">Operation:<br><br></td>
+<td valign="top">
+<select ng-model="selectedOp" ng-change="OpChanged()">
+<option ng-repeat="op in opList" value="{{op.url}}">{{op.url}}</option>
+</select>
+</td>
+</tr>
+
+
+
+<tr>
+<Td valign="top">URL:<br><br></Td>
+<td valign="top">
+<input type="textbox" ng-model="transformedOp" size="50">
+&nbsp;
+<button ng-click="ExecuteOp()">Run</button>
+</td>
+</tr>
+
+<tr>
+<td valign="top">Response:<br><br></td>
+<td valign="top">
+<pre>
+{{opResults | json}}
+</pre>
+</td>
+</tr>
+
 
 </div>

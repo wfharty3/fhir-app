@@ -28,6 +28,7 @@ app.controller('PatientCtrl',function($scope,$routeParams, $http, SMARTObject) {
 		smart.patient.read().then(function(pt){
 			console.log('in the smart object here');
 			$scope.patient = {
+				'id': pt.id,
 			 	'mrn': pt.id,
 			 	'fullName': pt.name[0].family[0] + ', ' + pt.name[0].given[0],
 			 	'narrative': pt.text.div,
