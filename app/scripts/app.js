@@ -11,11 +11,11 @@ app.config(function ($routeProvider) {
     })
     .when('/patient', {
         templateUrl: 'app/views/patient.html',
-        controller: 'MainCtrl'
+        controller: 'PatientCtrl'
     })
-    .when('/labs', {
-        templateUrl: 'views/labs.html',
-        controller: 'MainCtrl'
+    .when('/sprints', {
+        templateUrl: 'app/views/sprints.html',
+        controller: 'SprintsCtrl'
     })
     .when('/meds', {
         templateUrl: 'views/meds.html',
