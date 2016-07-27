@@ -1,4 +1,4 @@
-var app = angular.module('smartApp');
+var app = angular.module('fhirMan');
 app.controller('SprintsCtrl',function($scope,SprintsSvc,SMARTObject) {
   
  	$scope.tab = "Sprints";
@@ -27,21 +27,22 @@ app.controller('SprintsCtrl',function($scope,SprintsSvc,SMARTObject) {
 	  });
 	});
 
- 	var sprintList = SprintsSvc.listSprints();
- 	$scope.sprintList = sprintList;
-
- 	var opList = SprintsSvc.listSprintOps(1);
- 	$scope.opList = opList;
+ 	SprintsSvc.listSprints().then(function(data) {
+	 	$scope.sprintList = data;
+	 	$scope.$apply();
+ 	})
 
 
  	$scope.SprintChanged = function() {
-	 	var opList = SprintsSvc.listSprintOps($scope.selectedSprint);
- 		$scope.opList = opList;
- 		console.log('about to apply');
+	 	SprintsSvc.listSprintOps($scope.selectedSprint).then(function(data) {
+		 	$scope.opList = data;
+		 	$scope.$apply();
+	 	});
  	};
 
  	$scope.OpChanged = function() {
  		$scope.transformedOp = SprintsSvc.transformOp($scope.selectedOp, $scope.patient);
+ 		$scope.$apply();
  	};
 
     var onComplete = function(data) {

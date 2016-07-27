@@ -3,31 +3,21 @@
 
     var sprintsSvc = function($http) {
 
-
         var listSprints = function() {
-            var sprints = [
-                {num: 1, name: 'Sprint 1'}, 
-                {num: 2, name: 'Sprint 2'}, 
-                {num: 3, name: 'Sprint 3'}, 
-                {num: 4, name: 'Sprint 4'}, 
-                {num: 5, name: 'Sprint 5'}];
-            return sprints;
+            return $http.get('app/data/sprints.json').then(function success(response){
+                var sprints = [];
+                for (i=0; i < response.data.sprints.length; i++) {    
+                    var s = {"num": response.data.sprints[i].num, "name": response.data.sprints[i].name};
+                    sprints.push(s);
+                };
+                return sprints;
+            });
         };
 
         var listSprintOps = function(num) {
-            switch(num) {
-                case '1':
-                    var ops = [
-                        {url: '/Patient/[id]'},
-                        {url: '/Patient?identifier=[system]|[value]'},
-                        {url: '/Patient?name=[lastName]&gender=[gender]'},
-                        {url: '/Patient?name=[lastName]&birthdate=[birthdate]'},
-                        {url: '/Patient?family=[lastName]&gender=[gender]'},
-                        {url: '/Patient?given=[firstName]&gender=[gender]'}
-                    ];
-                    break;
-            }
-            return ops;
+            return $http.get('app/data/sprints.json').then(function success(response){
+                return response.data.sprints[num-1].operations;
+            });
         };
 
         var transformOp = function(op,pt) {
@@ -62,7 +52,7 @@
         };
     };    
 
-    var app = angular.module('smartApp');
+    var app = angular.module('fhirMan');
     app.factory('SprintsSvc',sprintsSvc);
 
 }());

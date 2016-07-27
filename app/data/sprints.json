@@ -1,0 +1,28 @@
+{"sprints": [
+	{"num": 1,
+    "name": "Sprint 1",
+	"operations": [
+        {"url": "/Patient/[id]"},
+        {"url": "/Patient?identifier=[system]|[value]"},
+        {"url": "/Patient?name=[lastName]&gender=[gender]"},
+        {"url": "/Patient?name=[lastName]&birthdate=[birthdate]"},
+        {"url": "/Patient?family=[lastName]&gender=[gender]"},
+        {"url": "/Patient?given=[firstName]&gender=[gender]"},
+        {"url": "/AllergyIntolerance?patient=[id]"},
+        {"url": "/Condition?patient=[id]"},
+        {"url": "/Condition?patient=[id]&clinicalstatus=active,relapse,remission"},
+        {"url": "/Condition?patient=[id]&category=problem"},
+        {"url": "/Condition?patient=[id]&category=health-concern"}
+
+		]
+	},
+    {"num": 2,
+    "name": "Sprint 2",
+    "operations": [
+        {"url": "/Patient/[id]"},
+        {"url": "/Patient?identifier=[system]|[value]"}
+        ]
+    }
+  ]
+}
+

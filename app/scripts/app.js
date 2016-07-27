@@ -1,7 +1,7 @@
 'use strict';
 // TODO: put iffe around this e.g. (function() {})
 
-var app = angular.module('smartApp',['ngRoute','ngResource', 'ngSanitize']);
+var app = angular.module('fhirMan',['ngRoute','ngResource', 'ngSanitize']);
 
 app.config(function ($routeProvider) {
   $routeProvider

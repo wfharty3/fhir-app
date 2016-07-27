@@ -1,4 +1,4 @@
-var app = angular.module('smartApp');
+var app = angular.module('fhirMan');
 
 //app.controller('MainCtrl',function($scope,$routeParams,SMARTObject) {
 app.controller('MainCtrl',function($scope,$routeParams, $http, SMARTObject) {
