@@ -2,25 +2,47 @@
 	{"num": 1,
     "name": "Sprint 1",
 	"operations": [
-        {"url": "/Patient/[id]"},
-        {"url": "/Patient?identifier=[system]|[value]"},
-        {"url": "/Patient?name=[lastName]&gender=[gender]"},
-        {"url": "/Patient?name=[lastName]&birthdate=[birthdate]"},
-        {"url": "/Patient?family=[lastName]&gender=[gender]"},
-        {"url": "/Patient?given=[firstName]&gender=[gender]"},
-        {"url": "/AllergyIntolerance?patient=[id]"},
-        {"url": "/Condition?patient=[id]"},
-        {"url": "/Condition?patient=[id]&clinicalstatus=active,relapse,remission"},
-        {"url": "/Condition?patient=[id]&category=problem"},
-        {"url": "/Condition?patient=[id]&category=health-concern"}
+        {"category": "Patient", "url": "/Patient/[id]"},
+        {"category": "Patient", "url": "/Patient?identifier=[system]|[value]"},
+        {"category": "Patient", "url": "/Patient?name=[lastName]&gender=[gender]"},
+        {"category": "Patient", "url": "/Patient?name=[lastName]&birthdate=[birthdate]"},
+        {"category": "Patient", "url": "/Patient?family=[lastName]&gender=[gender]"},
+        {"category": "Patient", "url": "/Patient?given=[firstName]&gender=[gender]"},
+        {"category": "Allergy", "url": "/AllergyIntolerance?patient=[id]"},
+        {"category": "Problems", "url": "/Condition?patient=[id]"},
+        {"category": "Problems", "url": "/Condition?patient=[id]&clinicalstatus=active,relapse,remission"},
+        {"category": "Problems", "url": "/Condition?patient=[id]&category=problem"},
+        {"category": "Problems", "url": "/Condition?patient=[id]&category=health-concern"}
 
 		]
 	},
     {"num": 2,
     "name": "Sprint 2",
     "operations": [
-        {"url": "/Patient/[id]"},
-        {"url": "/Patient?identifier=[system]|[value]"}
+        {"category": "Vitals", "url": "/Observation?patient=[id]&category=vital-signs"},
+        {"category": "Vitals", "url": "/Observation?patient=[id]&code=8867-4,9279-1,55284-4"},
+        {"category": "Vitals", "url": "/Observation?patient=[id]&category=vital-signs&date=ge2015-01-14"},
+        {"category": "Vitals", "url": "/Observation?patient=[id]&code=55284-4&date=ge2015-01-14"},
+        {"category": "Labs", "url": "/DiagnosticReport?patient=[id]&category=LAB"},
+        {"category": "Labs", "url": "/DiagnosticReport?patient=[id]&code=24323-8"},
+        {"category": "Labs", "url": "/DiagnosticReport?patient=[id]&category=LAB&date=ge2010-01-14"},
+        {"category": "Labs", "url": "/Observation?patient=[id]&category=laboratory"},
+        {"category": "Labs", "url": "/Observation?patient=[id]&code=2339-0,25428-4,2514-8"},
+        {"category": "Labs", "url": "/Observation?patient=[id]&category=laboratory&date=ge2015-01-14"},
+        {"category": "Smoking Status", "url": "/Observation?patient=[id]&code=72166-2"},
+        {"category": "Care Team", "url": "/CarePlan?patient=[id]&category=careteam&status=active"}
+        ]
+    },
+    {"num": 3,
+    "name": "Sprint 3",
+    "operations": [
+        {"category": "Meds", "url": "/MedicationOrder?patient=[id]"},
+        {"category": "Meds", "url": "/MedicationStatement?patient=[id]"},
+        {"category": "Immunization", "url": "/Immunization?patient=[id]"},
+        {"category": "Goals", "url": "/Goal?patient=[id]"},
+        {"category": "Goals", "url": "/Goal?patient=[id]&date=ge2015-01-14"},
+        {"category": "Goals", "url": "/Goal?patient=[id]&date=ge2015-01-14&date=le2016-01-14"},
+        {"category": "UDI", "url": "/Device?patient=[id]"}
         ]
     }
   ]

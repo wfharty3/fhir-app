@@ -19,7 +19,7 @@
 <td valign="top">Operation:<br><br></td>
 <td valign="top">
 <select ng-model="selectedOp" ng-change="OpChanged()">
-<option ng-repeat="op in opList" value="{{op.url}}">{{op.url}}</option>
+<option ng-repeat="op in opList" value="{{op.url}}">{{op.category}} - {{op.url}}</option>
 </select>
 </td>
 </tr>
